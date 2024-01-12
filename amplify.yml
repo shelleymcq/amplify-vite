@@ -26,6 +26,7 @@ test:
     preTest:
       commands:
         - npm install
+        - npm install vite
         - npm install wait-on
         - npm install mocha mochawesome mochawesome-merge mochawesome-report-generator
         - "npm run dev & npx wait-on http://127.0.0.1:8080"
