@@ -1,13 +1,22 @@
-import "./App.css";
+import "@aws-amplify/ui-react/styles.css";
+import {
+  withAuthenticator,
+  Button,
+  Heading,
+  Image,
+  View,
+  Card,
+} from "@aws-amplify/ui-react";
 
-function App() {
+function App({ signOut }) {
   return (
-    <div className="App">
-      <h1>Vite + React + Amplify + Cypress</h1>
-      <h2>Trying this with GitHub Actions and just hosting on AWS</h2>
-      <h3>What happens when a test fails?</h3>
-    </div>
+    <View className="App">
+      <Card>
+        <Heading level={1}>We now have Auth!</Heading>
+      </Card>
+      <Button onClick={signOut}>Sign Out</Button>
+    </View>
   );
 }
 
-export default App;
+export default withAuthenticator(App);
