@@ -8,6 +8,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: install dependencies
+        run: npm ci
+
+      - name: configure amplify
+        uses: ambientlight/amplify-cli-action@0.3.0
+        with:
+          amplify-command: configure
+          amplify_env: 10.6.1
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.WS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: us-east-1
+
       - name: Write the cypress.env.json file
         run: |
           echo '${{ secrets.CYPRESS_TESTUSER_ENV }}' >> cypress.env.json
