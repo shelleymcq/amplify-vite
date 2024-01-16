@@ -2,7 +2,7 @@ name: cypress-tests
 on: [push]
 
 jobs:
-  install:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -10,6 +10,10 @@ jobs:
 
       - name: install dependencies
         run: npm ci
+
+      - name: Write the cypress.env.json file
+        run: |
+          echo '${{ secrets.CYPRESS_TESTUSER_ENV }}' > cypress.env.json
 
       - name: Cypress run
         uses: cypress-io/github-action@v5
