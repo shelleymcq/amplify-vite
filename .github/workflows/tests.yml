@@ -17,7 +17,7 @@ jobs:
 
       - name: Write the aws-exports file
         run: |
-          echo '${{ secrets.CYPRESS_AWS-EXPORTS }}' >> ./asw-exports
+          echo '${{ secrets.CYPRESS_AWS-EXPORTS }}' >> /src/aws-exports.js
 
       - name: Cypress run
         uses: cypress-io/github-action@v5
