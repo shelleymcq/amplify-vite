@@ -15,6 +15,10 @@ jobs:
         run: |
           echo '${{ secrets.CYPRESS_TESTUSER_ENV }}' >> cypress.env.json
 
+      - name: Write the aws-exports file
+        run: |
+          echo '${{ secrets.CYPRESS_AWS-EXPORTS }}' >> ./asw-exports
+
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
